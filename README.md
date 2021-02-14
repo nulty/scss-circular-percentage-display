@@ -1,6 +1,5 @@
-# 🚀 Welcome to your new awesome project!
+# SCSS percent loader
 
-This project has been created using **webpack scaffold**, you can now run
 
 ```
 npm run dev
@@ -12,4 +11,7 @@ or
 yarn dev
 ```
 
-to bundle your application
+to run the application with a dev server
+
+
+Would like to get the keyframes working smoothly but alas it has evaded me thus far...
