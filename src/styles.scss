@@ -1,0 +1,88 @@
+@mixin rotation($j) {
+  transform: rotate((360/100*$j) + deg);
+}
+
+.container {
+  display: flex;
+  place-items: center;
+  place-content: center;
+  margin: auto;
+  height: 700px;
+  width:  700px;
+  background-color: #eee;
+
+}
+
+.center-circle {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 2px solid black;
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+}
+.number {
+  background-color: white;
+  position: absolute;
+  display: block;
+
+}
+
+.box {
+  // animation: go 3s ease-out 0s forwards;
+  position: absolute;
+  width: 500px;
+  height: 500px;
+
+  border-radius: 50%;
+  border: 6px solid #eee;
+}
+
+.box-right {
+  clip-path: inset(100% 50% 100% 100%);
+  border: 1px solid #eee; // needs a bordercolour to cover the other circle
+
+  @for $j from 1 through 100 {
+    &.p#{$j} {
+      @include rotation(50+$j);
+      background-color: red;
+      // animation: right#{$j} 1s ease-out forwards;
+    }
+  }
+}
+
+.box-left {
+  clip-path: inset(100% 100% 100% 50%);
+  background-color: #eee;
+
+  @for $j from 51 through 100 {
+    &.p#{$j} {
+      @include rotation(50);
+      background-color: red;
+    }
+  }
+}
+
+@for $j from 51 through 100 {
+  @keyframes left#{$j} {
+    from {
+      @include rotation(50);
+    }
+    to {
+      transform: rotate((360/100*$j) + deg);
+    }
+  }
+}
+@for $j from 1 through 100 {
+  @keyframes right#{$j} {
+    from {
+      @include rotation(50);
+    }
+    to {
+      transform: rotate((360/100*$j+180) + deg);
+    }
+  }
+}

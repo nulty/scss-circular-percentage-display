@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Webpack App</title>
+  </head>
+  <body>
+    <input type="range" id="slider" name="slider" value="0" min="0" max="100"/>
+    <div id="pct" class="container">
+
+
+      <div class="box box-right"></div>
+      <div class="box box-left"></div>
+      <div class="center-circle">
+        <span class="number">0%</span>
+      </div>
+    </div>
+
+    <script charset="utf-8">
+      const slider = document.getElementById('slider');
+      const pct = document.getElementById('pct');
+
+      const bl = document.getElementsByClassName('box-left')[0];
+      const br = document.getElementsByClassName('box-right')[0];
+
+      console.log(slider.value)
+      document.addEventListener('change', function(e) {
+        if (e.target.id === 'slider')
+          bl.classList = `p${slider.value} box box-left`
+          br.classList = `p${slider.value} box box-right`
+          console.log(e.target.value)
+          const text = document.getElementsByClassName('number')[0]
+          console.log(text)
+          text.innerText = `${slider.value}%`
+      })
+
+    </script>
+  </body>
+</html>
